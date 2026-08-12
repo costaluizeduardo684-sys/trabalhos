@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ABC Viagens</title>
+    <style>
+        /* Configurações Gerais #A9EEFF*/
+        body {
+            margin: 0;
+            font-family: Verdana, sans-serif;
+            /* Garante que o fundo ocupe pelo menos a altura inteira da tela */
+            min-height: 100vh; 
+            /* Substitua pelo caminho do seu arquivo */
+            background-image: url('avião.gif'); 
+            /* 1. Proíbe a imagem de se repetir e dividir em várias */
+            background-repeat: no-repeat; 
+            /* 2. Força a imagem a esticar/ajustar e cobrir a tela inteira */
+            background-size: cover; 
+            /* 3. Mantém a animação sempre centralizada na tela */
+            background-position: center; 
+            /* Opcional: mantém o fundo fixo enquanto o usuário rola a página */
+            background-attachment: fixed;
+        }
+
+        /* Topo / Header */
+        .ttopo {
+            background-color: #003B95;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            font-size: 45px;
+            font-weight: bold;
+            letter-spacing: -1px;
+        }
+        .a { color: #FF4D4D; } /* Vermelho mais moderno */
+        .b { color: #FFD200; } /* Amarelo com melhor contraste */
+        .c { color: #E209FF; }
+
+        /* Seção do Menu de Botões */
+        .botoes {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        /* Links transformados em botões para funcionar o href */
+        .btn-categoria {
+            display: inline-block;
+            background-color: white;
+            color: #333;
+            text-decoration: none;
+            padding: 12px 25px;
+            margin: 8px;
+            font-size: 16px;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-categoria:hover {
+            background-color: #003B95;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        /* Conteúdo Principal */
+        .conteudo {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .titulo-secao {
+            color: #002255; /* Cor escura para forte contraste com o fundo azul claro */
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        /* Grid de Cards */
+        .container {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            flex-wrap: wrap; /* Garante que quebre linha em telas menores */
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 16px;
+            width: 21%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .card-titulo {
+            color: #003B95;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .card-texto {
+            color: #444444;
+            font-size: 14px;
+            font-weight: normal; /* Texto normal é muito mais fácil de ler que negrito */
+            line-height: 1.6;
+            text-align: left; /* Alinhado à esquerda para melhor legibilidade */
+        }
+
+        /* Botão de Chamada para Ação (CTA) */
+        .cta-container {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: #25D366; /* Verde do WhatsApp para chamar atenção */
+            color: white;
+            text-decoration: none;
+            padding: 18px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .btn-cta:hover {
+            transform: scale(1.05);
+            background-color: #20ba5a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ttopo">
+        <span class="a">A</span>
+        <span class="b">B</span>
+        <span class="c">C</span>
+        viagens
+    </div>
+
+    <div class="botoes">
+        <a href="praia.html" class="btn-categoria"> Casa na praia</a>
+        <a href="parqueaqua.html" class="btn-categoria"> Parque aquático</a>
+        <a href="parquediver.html" class="btn-categoria"> Parque de diversão</a>
+        <a href="hotel.html" class="btn-categoria"> Hotel fazenda</a>
+        <a href="chale.html" class="btn-categoria"> Chalé</a>
+    </div>
+
+    <div class="conteudo">
+        
+        <div class="titulo-secao">Por que você deveria escolher nossa companhia?</div>
+        
+        <div class="container">
+            <div class="card">
+                <div class="card-titulo">✈️ 1. Planejamento sob medida e personalizado</div>
+                <div class="card-texto">
+                    Na ABC Viagens, cada roteiro é pensado de forma única. Não trabalhamos com pacotes genéricos. Analisamos o seu perfil, orçamento e preferências para garantir uma experiência sob medida, evitando gastos desnecessários.
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-titulo">💰 2. Melhor custo-benefício e economia</div>
+                <div class="card-texto">
+                    Nosso foco é fazer você viajar pagando menos e recebendo mais. Através de parcerias exclusivas, encontramos as melhores tarifas em passagens e hotéis, orientando você a evitar taxas e custos invisíveis.
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-titulo">🧭 3. Segurança e suporte especializado</div>
+                <div class="card-texto">
+                    Não deixamos você sozinho depois da compra. Oferecemos suporte completo antes, durante e depois da viagem. Resolva imprevistos e dúvidas com tranquilidade sabendo que nossa equipe está sempre pronta para ajudar.
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-titulo">🌍 4. Experiências ricas e inesquecíveis</div>
+                <div class="card-texto">
+                    Muito além de passagens ou hospedagens, nós entregamos vivências completas. Indicamos os melhores passeios, restaurantes locais e atividades que realmente combinam com você para tornar sua viagem memorável.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-titulo">⏳ 5. Facilidade e agilidade em todo o processo</div>
+                <div class="card-texto">
+                    Planejar uma viagem envolve dezenas de detalhes que demandam tempo e paciência. Nós cuidamos de toda a burocracia, emissões, reservas e documentações para você. Sua única preocupação será escolher os destinos e arrumar as malas, economizando horas de pesquisa e estresse na frente do computador.
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-titulo">🌿 6. Roteiros sustentáveis e turismo consciente</div>
+                <div class="card-texto">
+                    Acreditamos que viajar também é cuidar do mundo. Por isso, oferecemos opções de roteiros que apoiam as comunidades locais, valorizam a cultura da região e incentivam práticas de turismo responsável. Uma forma de conhecer novos lugares deixando um impacto positivo por onde você passar.
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-container">
+            <a href="https://wa.me/seu-numero" class="btn-cta" target="_blank"> Falar com um Consultor no WhatsApp</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
