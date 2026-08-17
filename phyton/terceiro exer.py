@@ -14,4 +14,3 @@ for i in range(9):
             print('Tá reprovado')
             break
         print(f'a quantidade de notas digitadas foi {i-1}')
-            
