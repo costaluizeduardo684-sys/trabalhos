@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 CinePlay</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #111;
+            color: white;
+        }
+
+        header {
+            background: #1c1c1c;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 2px solid #e50914;
+        }
+
+        header h1 {
+            color: #e50914;
+            font-size: 35px;
+        }
+
+        header p {
+            margin-top: 8px;
+            color: #ccc;
+        }
+
+        .filmes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .filme {
+            background: #1e1e1e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+
+        .filme:hover {
+            transform: translateY(-8px);
+        }
+
+        .filme img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+
+        .info {
+            padding: 18px;
+        }
+
+        .info h2 {
+            margin-bottom: 10px;
+        }
+
+        .info p {
+            color: #bbb;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .botao {
+            display: block;
+            text-align: center;
+            background: #e50914;
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 7px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .botao:hover {
+            background: #ff1b26;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #1c1c1c;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1> CinePlay</h1>
+        <p>Encontre seus filmes favoritos</p>
+    </header>
+
+    <main class="filmes">
+
+        <div class="filme">
+            <img src="https://acdn-us.mitiendanube.com/stores/004/687/740/products/pos-01172-5b216f48cadae3551717181340076595-1024-1024.webp" alt="Harry Potter">
+            <div class="info">
+                <h2>Harry Potter</h2>
+                <p>Uma aventura mágica cheia de mistérios e desafios.</p>
+                <a class="botao" href="https://www.youtube.com/watch?v=HiAzj9HZQnE" target="_blank">
+                    ▶ Assistir no YouTube
+                </a>
+            </div>
+        </div>
+
+        <div class="filme">
+            <img src="https://s2.glbimg.com/Zo7GePN37wWm8PSsRQDuWVyJSgo=/e.glbimg.com/og/ed/f/original/2019/03/25/spiderffh_tsrposter_london_breve.jpg" alt="Homem-Aranha">
+            <div class="info">
+                <h2>Homem-Aranha</h2>
+                <p>Um herói enfrenta grandes desafios para proteger sua cidade.</p>
+                <a class="botao" href="https://www.youtube.com/watch?v=PlulyWs1kS4" target="_blank">
+                    ▶ Assistir no YouTube
+                </a>
+            </div>
+        </div>
+
+        <div class="filme">
+            <img src="https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg" alt="Vingadores">
+            <div class="info">
+                <h2>Vingadores</h2>
+                <p>Os maiores heróis se unem para enfrentar uma ameaça.</p>
+                <a class="botao" href="https://www.youtube.com/watch?v=TcBtFtkQFiU" target="_blank">
+                    ▶ Assistir no YouTube
+                </a>
+            </div>
+        </div>
+
+        <div class="filme">
+            <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" alt="Interestelar">
+            <div class="info">
+                <h2>Interestelar</h2>
+                <p>Uma viagem pelo espaço em busca de um novo lar para a humanidade.</p>
+                <a class="botao" href="https://www.youtube.com/watch?v=i6avfCqKcQo" target="_blank">
+                    ▶ Assistir no YouTube
+                </a>
+            </div>
+        </div>
+
+        <div class="filme">
+            <img src="https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" alt="Super Mario Bros">
+            <div class="info">
+                <h2>Super Mario Bros.</h2>
+                <p>Mario e Luigi embarcam em uma aventura pelo Reino dos Cogumelos.</p>
+                <a class="botao" href="https://www.youtube.com/watch?v=Cb4WV4aXBpk" target="_blank">
+                    ▶ Assistir no YouTube
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 CinePlay - Projeto de filmes</p>
+    </footer>
+
+</body>
+</html>
