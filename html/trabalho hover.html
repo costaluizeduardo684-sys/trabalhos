@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Define a codificação dos caracteres -->
+    <meta charset="UTF-8">
+
+    <!-- Título que aparece na aba do navegador -->
+    <title>Melhores Lugares do Mundo</title>
+
+    <style>
+
+        /* Define o tamanho dos elementos */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Configura o corpo da página */
+        body {
+            margin: 0;
+            font-family: Tahoma, Arial, sans-serif;
+            background: #eef5f7;
+            color: #20333b;
+        }
+
+        /* Estiliza o cabeçalho */
+        header {
+            background: linear-gradient(135deg, #087f8c, #145da0);
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        /* Estiliza o título */
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 36px;
+        }
+
+        /* Estiliza o texto do cabeçalho */
+        header p {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        /* Cria a área de colunas */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 25px;
+            gap: 25px;
+        }
+
+        /* Coluna esquerda */
+        .menu {
+            flex: 1 1 230px;
+        }
+
+        /* Coluna principal */
+        .conteudo {
+            flex: 3 1 650px;
+        }
+
+        /* Coluna direita */
+        .informacoes {
+            flex: 1 1 230px;
+        }
+
+        /* Remove os marcadores da lista */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estiliza cada item da lista */
+        li {
+            margin-bottom: 12px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+            /* Cria uma animação para o hover */
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+        }
+
+        /* Hover diferente para o menu */
+        li:hover {
+            transform: translateX(10px) scale(1.03);
+            background: #d9f5f7;
+            box-shadow: 0 8px 20px rgba(8, 127, 140, 0.35);
+        }
+
+        /* Estiliza os links do menu */
+        li a {
+            display: block;
+            padding: 14px;
+            color: #145da0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Muda a cor do link ao passar o mouse */
+        li a:hover {
+            color: #087f8c;
+        }
+
+        /* Estiliza as imagens pequenas */
+        .miniatura {
+            width: 100%;
+            height: 125px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Estiliza o título da área principal */
+        .conteudo h2 {
+            margin-top: 0;
+            font-size: 30px;
+            color: #145da0;
+        }
+
+        /* Cria uma grade para os destinos */
+        .destinos {
+            display: grid;
+
+            /* Faz os cards se ajustarem automaticamente */
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+            /* Espaçamento entre os cards */
+            gap: 20px;
+        }
+
+        /* Estiliza cada card */
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+
+            /* Animação do hover */
+            transition: transform 0.35s, box-shadow 0.35s;
+        }
+
+        /* Hover diferente nos cards */
+        .card:hover {
+            transform: translateY(-10px) rotate(-1deg);
+            box-shadow: 0 15px 30px rgba(20, 93, 160, 0.28);
+        }
+
+        /* Estiliza as imagens dos cards */
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Espaçamento do conteúdo do card */
+        .card-content {
+            padding: 16px;
+        }
+
+        /* Nome do destino */
+        .card h3 {
+            margin: 0 0 8px;
+            color: #087f8c;
+        }
+
+        /* Texto do destino */
+        .card p {
+            line-height: 1.5;
+            margin: 0 0 12px;
+        }
+
+        /* Botão para abrir a foto grande */
+        .foto-grande {
+            display: inline-block;
+            background: #145da0;
+            color: white;
+            padding: 9px 13px;
+            border-radius: 8px;
+            text-decoration: none;
+
+            /* Animação do botão */
+            transition: background 0.25s, transform 0.25s;
+        }
+
+        /* Hover do botão */
+        .foto-grande:hover {
+            background: #087f8c;
+            transform: scale(1.06);
+        }
+
+        /* Caixa lateral de informações */
+        .caixa {
+            background: #145da0;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Título da caixa */
+        .caixa h2 {
+            margin-top: 0;
+        }
+
+        /* Rodapé */
+        footer {
+            background: #12343b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        /* Responsividade para celulares */
+        @media only screen and (max-width: 700px) {
+
+            /* Diminui o título */
+            header h1 {
+                font-size: 28px;
+            }
+
+            /* Diminui os espaços */
+            .row {
+                padding: 15px;
+                gap: 15px;
+            }
+
+            /* Deixa um card por linha */
+            .destinos {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+
+    <header>
+
+        <!-- Título principal -->
+        <h1>🌎 Melhores Lugares do Mundo</h1>
+
+        <!-- Descrição do site -->
+        <p>
+            Conheça destinos incríveis para colocar na sua lista de viagens.
+        </p>
+
+    </header>
+
+
+
+
+    <div class="row">
+
+
+
+        <aside class="menu">
+
+            <!-- Lista de destinos -->
+            <ul>
+
+                <!-- Bali -->
+                <li>
+
+                    <!-- Link que leva até o card de Bali -->
+                    <a href="#bali">
+
+                        <!-- Imagem de Bali -->
+                        <img
+                            class="miniatura"
+                            src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=700&q=80"
+                            alt="Bali">
+
+                        <!-- Nome do destino -->
+                        Bali - Indonésia
+
+                    </a>
+
+                </li>
+
+
+                <!-- Paris -->
+                <li>
+
+                    <a href="#paris">
+
+                        <!-- Imagem de Paris -->
+                        <img
+                            class="miniatura"
+                            src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=700&q=80"
+                            alt="Paris">
+
+                        Paris - França
+
+                    </a>
+
+                </li>
+
+
+                <!-- Santorini -->
+                <li>
+
+                    <a href="#santorini">
+
+                        <!-- Imagem de Santorini -->
+                        <img
+                            class="miniatura"
+                            src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=700&q=80"
+                            alt="Santorini">
+
+                        Santorini - Grécia
+
+                    </a>
+
+                </li>
+
+
+                <!-- Rio de Janeiro -->
+                <li>
+
+                    <a href="#rio">
+
+                        <!-- Imagem do Rio -->
+                        <img
+                            class="miniatura"
+                            src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=700&q=80"
+                            alt="Rio de Janeiro">
+
+                        Rio de Janeiro - Brasil
+
+                    </a>
+
+                </li>
+
+
+                <!-- Tóquio -->
+                <li>
+
+                    <a href="#toquio">
+
+                        <!-- Imagem de Tóquio -->
+                        <img
+                            class="miniatura"
+                            src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=700&q=80"
+                            alt="Tóquio">
+
+                        Tóquio - Japão
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+        <main class="conteudo">
+
+            <!-- Título da seção -->
+            <h2>Destinos que você precisa conhecer</h2>
+
+            <!-- Texto introdutório -->
+            <p>
+                Existem lugares incríveis em todos os continentes.
+                Confira alguns destinos famosos por suas paisagens,
+                cultura, história e experiências.
+            </p>
+
+
+            <!-- Grade de destinos -->
+            <section class="destinos">
+
+
+
+                <article class="card" id="bali">
+
+                    <!-- Imagem de Bali -->
+                    <img
+                        src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=90"
+                        alt="Paisagem de Bali">
+
+                    <div class="card-content">
+
+                        <!-- Nome do lugar -->
+                        <h3>Bali, Indonésia</h3>
+
+                        <!-- Descrição -->
+                        <p>
+                            Praias, templos, natureza tropical e belas
+                            paisagens fazem de Bali um destino muito procurado.
+                        </p>
+
+                        <!-- Link para foto grande -->
+                        <a
+                            class="foto-grande"
+                            href="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=100"
+                            target="_blank">
+
+                            Ver foto grande
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+ 
+
+                <article class="card" id="paris">
+
+                    <!-- Imagem de Paris -->
+                    <img
+                        src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=90"
+                        alt="Paris e Torre Eiffel">
+
+                    <div class="card-content">
+
+                        <h3>Paris, França</h3>
+
+                        <p>
+                            Uma cidade conhecida por sua arquitetura,
+                            museus, gastronomia e pela famosa Torre Eiffel.
+                        </p>
+
+                        <!-- Link para foto grande -->
+                        <a
+                            class="foto-grande"
+                            href="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=2000&q=100"
+                            target="_blank">
+
+                            Ver foto grande
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="card" id="santorini">
+
+                    <!-- Imagem de Santorini -->
+                    <img
+                        src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&q=90"
+                        alt="Santorini na Grécia">
+
+                    <div class="card-content">
+
+                        <h3>Santorini, Grécia</h3>
+
+                        <p>
+                            Conhecida pelas casas brancas, mar azul
+                            e incríveis vistas do Mar Egeu.
+                        </p>
+
+                        <!-- Link para foto grande -->
+                        <a
+                            class="foto-grande"
+                            href="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=2000&q=100"
+                            target="_blank">
+
+                            Ver foto grande
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="card" id="rio">
+
+                    <!-- Imagem do Rio -->
+                    <img
+                        src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=1200&q=90"
+                        alt="Rio de Janeiro">
+
+                    <div class="card-content">
+
+                        <h3>Rio de Janeiro, Brasil</h3>
+
+                        <p>
+                            Montanhas, praias e pontos turísticos famosos
+                            formam uma das paisagens mais conhecidas do Brasil.
+                        </p>
+
+                        <!-- Link para foto grande -->
+                        <a
+                            class="foto-grande"
+                            href="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=2000&q=100"
+                            target="_blank">
+
+                            Ver foto grande
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+                <article class="card" id="toquio">
+
+                    <!-- Imagem de Tóquio -->
+                    <img
+                        src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=90"
+                        alt="Tóquio no Japão">
+
+                    <div class="card-content">
+
+                        <h3>Tóquio, Japão</h3>
+
+                        <p>
+                            Uma metrópole que mistura tecnologia,
+                            cultura tradicional, gastronomia e bairros movimentados.
+                        </p>
+
+                        <!-- Link para foto grande -->
+                        <a
+                            class="foto-grande"
+                            href="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=2000&q=100"
+                            target="_blank">
+
+                            Ver foto grande
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+               
+
+                <article class="card">
+
+                    <!-- Imagem de Machu Picchu -->
+                    <img
+                        src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=1200&q=90"
+                        alt="Machu Picchu">
+
+                    <div class="card-content">
+
+                        <h3>Machu Picchu, Peru</h3>
+
+                        <p>
+                            Uma antiga cidade inca cercada por montanhas
+                            e paisagens impressionantes.
+                        </p>
+
+                        <!-- Link para foto grande -->
+                        <a
+                            class="foto-grande"
+                            href="https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&w=2000&q=100"
+                            target="_blank">
+
+                            Ver foto grande
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+             
+
+                <article class="card">
+
+                    <!-- Imagem das Maldivas -->
+                    <img
+                        src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=90"
+                        alt="Maldivas">
+
+                    <div class="card-content">
+
+                        <h3>Maldivas</h3>
+
+                        <p>
+                            Ilhas tropicais conhecidas pelas águas claras,
+                            praias e paisagens paradisíacas.
+                        </p>
+
+                        <!-- Link para foto grande -->
+                        <a
+                            class="foto-grande"
+                            href="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=2000&q=100"
+                            target="_blank">
+
+                            Ver foto grande
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+        </main>
+
+
+        
+
+        <aside class="informacoes">
+
+            <!-- Caixa de curiosidades -->
+            <div class="caixa">
+
+                <!-- Título -->
+                <h2>✈️ Curiosidades</h2>
+
+                <!-- Curiosidade sobre Bali -->
+                <h3>Bali</h3>
+
+                <p>
+                    É conhecida por suas praias, templos
+                    e paisagens tropicais.
+                </p>
+
+
+                <!-- Curiosidade sobre Paris -->
+                <h3>Paris</h3>
+
+                <p>
+                    É famosa pela Torre Eiffel, museus
+                    e arquitetura histórica.
+                </p>
+
+
+                <!-- Curiosidade sobre Tóquio -->
+                <h3>Tóquio</h3>
+
+                <p>
+                    Combina tecnologia moderna com
+                    tradições japonesas.
+                </p>
+
+
+                <!-- Curiosidade sobre o Rio -->
+                <h3>Rio de Janeiro</h3>
+
+                <p>
+                    Tem paisagens famosas como o Pão de Açúcar
+                    e o Cristo Redentor.
+                </p>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+
+   
+
+    <footer>
+
+        <!-- Texto do rodapé -->
+        <p>
+            🌎 Melhores Lugares do Mundo — Projeto de HTML e CSS
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
