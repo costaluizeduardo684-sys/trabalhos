@@ -1,0 +1,17 @@
+use world;
+
+select * from country order by continent asc;
+
+select * from city order by contient asc;
+
+select name ,Population from city order by Population desc;
+
+select Name, Continent, LifeExpectancy order by LifeExpectancy asc;
+
+select Name, Continent from country order by Continent asc, order by Name asc;
+
+select Name, Population from city order by Population desc;
+
+select Name,Percentage, Name from country order by IndepYear asc;
+
+select from order by asc and desc;
