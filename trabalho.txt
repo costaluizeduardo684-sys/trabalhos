@@ -1,0 +1,93 @@
+/* Questão 01 [Tabela: country] — Consulte a tabela country e exiba o nome do país (aliás
+Pais), o continente (aliás continente) e a população (aliás População) apenas dos países
+localizados no continente 'South America'. Ordene o resultado pela população de forma
+decrescente.*/
+SELECT Name AS Pais, Continent AS continente, Population AS População  FROM country WHERE Continent = 'South America' ORDER BY Population DESC;
+
+/*Questão 02 [Tabela: city] — Na tabela city, liste o nome da cidade (aliás Cidade), o
+distrito/estado (aliás Estado) e a população (aliás habitantes) das cidades brasileiras
+(CountryCode = 'BRA') com população superior a 1000000 (1 milhão) de habitantes.
+Ordene alfabeticamente pelo nome da cidade.*/
+SELECT Name AS Cidade, District AS Estado, Population AS habitantes FROM city WHERE CountryCode = 'BRA' AND Population > 1000000 ORDER BY Name ASC;
+
+/*Questão 03 [Tabela: country] — Selecione o código do país (aliás Sigla), o nome (aliás
+Pais) e o ano de independência (aliás Ano_Independencia) da tabela country para os
+registros em que o ano de independência seja desconhecido (NULL). Ordene pelo nome do
+país em ordem crescente.*/
+SELECT Code AS Sigla, Name AS Pais, IndepYear AS Ano_Independencia FROM country WHERE IndepYear IS NULL ORDER BY Name ASC;
+
+/*Questão 04 [Tabela: countrylanguage] — Consulte a tabela countrylanguage para exibir
+o código do país (aliás Pais) e o idioma (aliás Idioma_Oficial) de todos os registros onde o
+idioma seja oficial (IsOfficial = 'T') e o percentual de falantes (Percentage) seja maior ou
+igual a 90. Ordene pelo percentual em ordem decrescente.*/
+SELECT CountryCode AS Pais, Language AS Idioma_Oficial FROM countrylanguage WHERE IsOfficial = 'T' AND Percentage >= 90 ORDER BY Percentage DESC;
+
+/*Questão 05 [Tabela: city] — Exiba o nome da cidade (aliás Cidade) e o código do país
+(aliás Codigo_Pais) da tabela city para todas as cidades cujo nome comece com a palavra
+Banco de Dados I • Página 2
+'New '. Ordene primeiramente pelo código do país (crescente) e depois pelo nome da cidade
+(crescente).*/
+SELECT Name AS Cidade, CountryCode AS Codigo_Pais FROM city WHERE Name LIKE 'New %' ORDER BY CountryCode ASC, Name ASC;
+
+/*Questão 06 [Tabela: country] — Na tabela country, liste o nome do país (aliás Pais), a
+região (aliás Região) e a expectativa de vida (aliás Expectativa_Vida) dos países
+pertencentes aos códigos 'BRA', 'ARG', 'CHL' ou 'URY'. Ordene pela expectativa de vida do
+maior para o menor.*/
+SELECT Name AS Pais, Region AS Região, LifeExpectancy AS Expectativa_Vida FROM country WHERE Code IN ('BRA', 'ARG', 'CHL', 'URY') ORDER BY LifeExpectancy DESC;
+
+/*Questão 07 [Tabela: country] — Consulte a tabela country e retorne o nome do país (aliás
+Pais) e a forma de governo (aliás Governo) dos países cuja forma de governo contenha o
+termo 'Monarchy'. Ordene o resultado pelo nome do país em ordem alfabética*/
+SELECT Name AS Pais, GovernmentForm AS Governo FROM country WHERE GovernmentForm LIKE '%Monarchy%' ORDER BY Name ASC;
+
+/*Questão 08 [Tabela: city] — Na tabela city, liste o nome da cidade (aliás Município) e a
+população (aliás População) das cidades pertencentes ao distrito 'São Paulo' (District =
+'São Paulo') no Brasil (CountryCode = 'BRA') que possuam população menor ou igual a
+200000 habitantes. Ordene pela população de forma decrescente.*/
+SELECT Name AS Município, Population AS População FROM city WHERE District = 'São Paulo' AND CountryCode = 'BRA' AND Population <= 200000 ORDER BY Population DESC;
+
+/*Questão 09 [Tabela: country] — Exiba o nome do país (aliás Pais), o continente (aliás
+continente) e a área territorial (aliás Area_km2) da tabela country para os países com área
+menor que 1000 km² e que possuam expectativa de vida cadastrada (LifeExpectancy IS
+NOT NULL). Ordene pela área em ordem crescente*/
+SELECT Name AS Pais, Continent AS continente, SurfaceArea AS Area_km2 FROM country WHERE SurfaceArea < 1000 AND LifeExpectancy IS NOT NULL ORDER BY SurfaceArea ASC;
+
+/*Questão 10 [Tabela: countrylanguage] — Consulte a tabela countrylanguage e exiba o
+código do país (aliás Codigo), o idioma (aliás Lingua) e o percentual (aliás percentual) dos
+registros em que o idioma seja 'Portuguese' ou 'Spanish', desde que o percentual de
+falantes seja superior a 50. Ordene pelo percentual de forma decrescente*/
+SELECT CountryCode AS Codigo, Language AS Lingua, Percentage AS percentual FROM countrylanguage WHERE Language IN ('Portuguese', 'Spanish') AND Percentage > 50 ORDER BY Percentage DESC;
+
+/*Questão 11 [Tabela: country] — Na tabela country, exiba o nome do país (aliás Pais), o
+ano de independência (aliás Independência) e o PIB atual (aliás PIB_Atual) dos países do
+continente 'Europe' cujo ano de independência esteja preenchido (IS NOT NULL), seja
+posterior a 1950 e o PIB atual (GNP) seja maior que 50000. Ordene pelo PIB atual em
+ordem decrescente*/
+SELECT Name AS Pais, IndepYear AS Independência, GNP AS PIB_Atual FROM country WHERE Continent = 'Europe' AND IndepYear IS NOT NULL AND IndepYear > 1950 AND GNP > 50000 ORDER BY GNP DESC;
+
+/*Questão 12 [Tabela: city] — Consulte a tabela city para listar o nome da cidade (aliás
+Cidade), o código do país (aliás Pais) e a população (aliás População) das cidades
+localizadas nos países 'USA', 'CAN' ou 'MEX' cujo nome termine com a letra 'o' e tenha
+população acima de 500000. Ordene pela população em ordem decrescente*/
+SELECT Name AS Cidade, CountryCode AS Pais, Population AS População FROM city WHERE CountryCode IN ('USA', 'CAN', 'MEX') AND Name LIKE '%o' AND Population > 500000 ORDER BY Population DESC;
+
+/*Questão 13 [Tabela: country] — Selecione o nome do país (aliás Pais), o chefe de Estado
+(aliás chefe_Estado) e o continente (aliás continente) da tabela country onde o chefe de
+Estado esteja preenchido (IS NOT NULL), não seja vazio (HeadOfState != ''), e o país
+pertença aos continentes 'Oceania' ou 'Africa', com população superior a 10000000.
+Ordene por continente (crescente) e nome do país (crescente).*/
+SELECT Name AS Pais, HeadOfState AS chefe_Estado, Continent AS continente FROM country WHERE HeadOfState IS NOT NULL AND HeadOfState != '' AND Continent IN ('Oceania', 'Africa') AND Population > 10000000 ORDER BY Continent ASC, Name ASC;
+
+/*Questão 14 [Tabela: countrylanguage] — Na tabela countrylanguage, exiba o código do
+país (aliás Pais), o idioma (aliás Idioma) e o percentual (aliás percentual) dos idiomas não
+oficiais (IsOfficial = 'F') cujo nome comece com 'A' ou 'E' e que tenham percentual de
+falantes maior que 10. Ordene pelo idioma (crescente) e percentual (decrescente)*/
+SELECT CountryCode AS Pais, Language AS Idioma, Percentage AS percentual FROM countrylanguage WHERE IsOfficial = 'F' AND (Language LIKE 'A%' OR Language LIKE 'E%') AND Percentage > 10 ORDER BY Language ASC, Percentage DESC;
+
+/*Questão 15 [Tabela: country] — Consulte a tabela country e exiba o nome do país (aliás
+Pais), o PIB anterior (aliás PIB_Anterior) e o PIB atual (aliás PIB_Atual) dos países onde o
+PIB anterior (GNPOld) não seja nulo (IS NOT NULL), o PIB atual (GNP) seja menor que o
+PIB anterior (indicando retração) e o continente não seja 'Africa'. Ordene pelo nome do país
+em ordem alfabética*/
+SELECT Name AS Pais, GNPOld AS PIB_Anterior, GNP AS PIB_Atual FROM country WHERE GNPOld IS NOT NULL AND GNP < GNPOld AND Continent != 'Africa' ORDER BY Name ASC;
+
